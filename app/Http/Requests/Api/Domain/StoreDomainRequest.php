@@ -3,7 +3,16 @@
 namespace App\Http\Requests\Api\Domain;
 
 use Illuminate\Foundation\Http\FormRequest;
+use OpenApi\Attributes\Property;
+use OpenApi\Attributes\Schema;
 
+#[Schema(
+    title: 'StoreDomainRequest',
+    required: ['file'],
+    properties: [
+        new Property(property: 'file', type: 'string', format: 'binary'),
+    ]
+)]
 class StoreDomainRequest extends FormRequest
 {
     /**

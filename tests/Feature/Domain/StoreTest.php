@@ -38,6 +38,7 @@ class StoreTest extends TestCase
         $response->assertStatus(200);
     }
 
+
     #[DataProvider('provideInvalidData')]
     #[Test]
     public function checkInvalidFileSubmission($dataFile): void

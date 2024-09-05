@@ -3,7 +3,18 @@
 namespace App\Http\Requests\Api\Login;
 
 use Illuminate\Foundation\Http\FormRequest;
+use OpenApi\Attributes\Items;
+use OpenApi\Attributes\Property;
+use OpenApi\Attributes\Schema;
 
+#[Schema(
+    title: 'AuthenticateRequest',
+    required: ['email', 'password'],
+    properties: [
+        new Property(property: 'email', type: 'string', format: 'email'),
+        new Property(property: 'password', type: 'string'),
+    ]
+)]
 class AuthenticateRequest extends FormRequest
 {
     /**

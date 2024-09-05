@@ -3,6 +3,9 @@
 namespace Tests\Feature\Auth;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Auth;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
@@ -24,8 +27,9 @@ class LoginTest extends TestCase
     {
         $response = $this->post('/api/login', ['email' => $email, 'password' => $password]);
 
-        $response->assertStatus(403);
+        $response->assertStatus(401);
     }
+
 
     #[DataProvider('provideValidData')]
     #[Test]
@@ -40,7 +44,7 @@ class LoginTest extends TestCase
     {
         return [[
             'email' => fake()->email,
-            'password' => '12345678',
+            'password' => '12345678'
         ]];
     }
 
@@ -48,7 +52,7 @@ class LoginTest extends TestCase
     {
         return [[
             'email' => 'test@example.com',
-            'password' => 'password',
+            'password' => 'password'
         ]];
     }
 }

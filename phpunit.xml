@@ -6,7 +6,7 @@
 >
     <testsuites>
         <testsuite name="Unit">
-            <directory>tests/Unit/Domain</directory>
+            <directory>tests/Unit</directory>
         </testsuite>
         <testsuite name="Feature">
             <directory>tests/Feature/Auth</directory>
@@ -19,8 +19,6 @@
         </include>
         <exclude>
             <directory suffix=".php">app/Enums/</directory>
-            <directory suffix=".php">app/Exceptions/</directory>
-            <file>app/Services/GoogleVerifyService.php</file>
         </exclude>
     </source>
     <php>
